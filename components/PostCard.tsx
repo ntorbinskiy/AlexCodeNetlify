@@ -65,7 +65,10 @@ const PostCard = ({ post }: Props) => {
         <div className="content">
           <Link href={`/post/${post.slug}`} className="post-img">
             <img
-              src={post.featuredImage ?? "/post-images/draft.webp"}
+              src={
+                `${post.featuredImage}?nf_resize=fit&w=378&h=378` ??
+                "/post-images/draft.webp?nf_resize=fit&w=378&h=378"
+              }
               alt="blog post image"
               style={{
                 filter:

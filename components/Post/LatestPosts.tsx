@@ -22,7 +22,10 @@ const LatestPosts = ({ latestPosts }: Props) => {
         <div className="related-posts-block" key={post.title}>
           <Link href={post.slug} className="image">
             <img
-              src={post.featuredImage ?? "/post-images/draft.webp"}
+              src={
+                `${post.featuredImage}?nf_resize=fit&w=102&h=102` ??
+                "/post-images/draft.webp?nf_resize=fit&w=102&h=102"
+              }
               alt="blog post image"
               style={{
                 filter:
