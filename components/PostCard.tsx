@@ -64,38 +64,29 @@ const PostCard = ({ post }: Props) => {
       >
         <div className="content">
           <Link href={`/post/${post.slug}`} className="post-img">
-
-            <Image
+            <img
               src={post.featuredImage ?? "/post-images/draft.webp"}
               alt="blog post image"
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(378, 378)
-              )}`}
-              fill
-              sizes="100vw"
               style={{
                 filter:
                   isPostADraft(post) || isPostInTheFuture(post)
                     ? "grayscale(50%)"
                     : "none",
-
-                objectFit: "cover"
-              }} />
-
+              }}
+            />
           </Link>
           <div className="tags">
             {post.tags.map((tag) => (
-              (<Link
+              <Link
                 href="/"
                 key={tag}
                 onClick={(event) => {
                   event.preventDefault();
                   dispatch(setTags([tag]));
-                }}>
+                }}
+              >
                 #{tag}
-
-              </Link>)
+              </Link>
             ))}
           </div>
           <Link href={`/post/${post.slug}`} className="link">
